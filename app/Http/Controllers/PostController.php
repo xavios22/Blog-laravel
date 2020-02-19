@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
@@ -13,8 +14,9 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Post $model)
-    {   
-
+    {    
+        
+        
         return view('posts.index', ['posts' => $model->paginate(5)]);
     }
 
@@ -64,7 +66,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        return view('posts.edit');
     }
 
     /**
@@ -74,9 +76,15 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, $id)
     {
-        //
+        $post = Post::find($id);
+        dd($post);
+        $post->title = $request->tilte;
+        $post->contenu =$rrequest->contenu;
+        $post->save();
+        dd($post);
+    return redirect()->route('post')->withStatus(__('Votre post a été crée veuillez le valider'));
     }
 
     /**

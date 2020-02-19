@@ -20,7 +20,7 @@
                     <div class="card-body">
                         <form method="post" action="{{ route('post.store') }}" autocomplete="off">
                             @csrf
-                            <h6 class="heading-small text-muted mb-4">{{ __("Information de l'utilisateur") }}</h6>
+                           
                             <div class="pl-lg-4">
                                 <div class="form-group{{ $errors->has('title') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="input-title">Titre</label>
@@ -32,10 +32,11 @@
                                         </span>
                                     @endif
                                 </div>
+                                
                                 <div class="form-group{{ $errors->has('contenu') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="input-contenu">{{ __('Contenu') }}</label>
-                                    <input type="text" name="contenu" id="input-contenu" class="form-control form-control-alternative{{ $errors->has('contenu') ? ' is-invalid' : '' }}" placeholder="{{ __('Tapez ici votre blog') }}" value="{{ old('contenu') }}" required>
-
+                                    <textarea type="text" name="contenu" id="input-contenu" class="form-control form-control-alternative{{ $errors->has('contenu') ? ' is-invalid' : '' }}" placeholder="{{ __('Tapez ici votre blog') }}" value="{{ old('contenu') }}" required></textarea>
+                                    
                                     @if ($errors->has('contenu'))
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $errors->first('contenu') }}</strong>
@@ -60,6 +61,7 @@
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-success mt-4">{{ __('Sauvegarder') }}</button>
                                 </div>
+                                
                             </div>
                         </form>
                     </div>

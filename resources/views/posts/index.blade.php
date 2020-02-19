@@ -46,8 +46,8 @@
                                 @foreach ($posts as $post)
                                     <tr>
                                         <td>{{ $post->id }}</td>
-                                        <td>{{ $post->title }}</td>
-                                        <td>{{ $post->contenu }}</td>
+                                        <td>{{substr ($post->title,0,15) }}</td>
+                                        <td>{{substr ($post->contenu,0,25) }}</td>
                                         <td>{{ $post->created_at->format('d/m/Y H:i') }}</td>
                                         <td></td>
                                         <td class="text-right">
@@ -60,7 +60,7 @@
                                                         <form action="{{ route('user.destroy', $post) }}" method="post">
                                                             @csrf
                                                             @method('delete')
-                                                            <a class="dropdown-item" href="{{ route('user.edit', $post) }}">Modifier</a>
+                                                            <a class="dropdown-item" href="{{ route('post.edit', $post) }}">Modifier</a>
                                                             
                                                             <button type="button" class="dropdown-item" onclick="confirm('{{ __("Êtes-vous sûr de vouloir supprimer cet utilisateur ?") }}') ? this.parentElement.submit() : ''">Supprimer</button>
                                                         </form>    

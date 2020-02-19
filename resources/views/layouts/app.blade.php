@@ -17,6 +17,8 @@
         <link href="{{ asset('argon') }}/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
         <!-- Argon CSS -->
         <link type="text/css" href="{{ asset('argon') }}/css/argon.css?v=1.0.0" rel="stylesheet">
+        <!-- Laraverg Gutemberg text -->
+        <link rel="stylesheet" href="{{asset('vendor/laraberg/css/laraberg.css')}}">
     </head>
     <body class="{{ $class ?? '' }}">
         @auth()
@@ -34,8 +36,16 @@
         
 
         <script src="{{ asset('argon') }}/vendor/jquery/dist/jquery.min.js"></script>
+        <!-- laraberg textarea -->
         <script src="{{ asset('argon') }}/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-        
+        <script src="{{ asset('vendor/laraberg/js/laraberg.js') }}"></script>
+        <script src="https://unpkg.com/react@16.6.3/umd/react.production.min.js"></script>
+
+<script src="https://unpkg.com/react-dom@16.6.3/umd/react-dom.production.min.js"></script>
+
+<script src="https://unpkg.com/moment@2.22.1/min/moment.min.js"></script>
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
         @stack('js')
         
         <!-- Argon JS -->
