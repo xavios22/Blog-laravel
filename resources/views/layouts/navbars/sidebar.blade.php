@@ -55,17 +55,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Form -->
-            <form class="mt-4 mb-3 d-md-none">
-                <div class="input-group input-group-rounded input-group-merge">
-                    <input type="search" class="form-control form-control-rounded form-control-prepended" placeholder="{{ __('Search') }}" aria-label="Search">
-                    <div class="input-group-prepend">
-                        <div class="input-group-text">
-                            <span class="fa fa-search"></span>
-                        </div>
-                    </div>
-                </div>
-            </form>
             <!-- Navigation -->
             <ul class="navbar-nav">
                 <li class="nav-item">
@@ -101,8 +90,15 @@
                                 </a>
                             </li>
                         </ul>
+                        <li class="nav-item">
+                                <a class="nav-link" href="{{ route('post') }}">
+                                <i class="fas fa-align-justify"></i>
+                                    {{ __('Mes post') }}
+                                </a>
+                            </li>
                     </div>
                 </li>
+                
             </ul>
         </div>
     </div>

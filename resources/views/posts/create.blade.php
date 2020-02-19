@@ -1,19 +1,19 @@
-@extends('layouts.app', ['title' => __('User Management')])
-
+@extends('layouts.app')
 @section('content')
-    @include('users.partials.header', ['title' => __('Ajouter un utilisateur')])   
-
-    <div class="container-fluid mt--7">
+@include('posts.Partials.header', [
+        'title' => __('Créer Blog '),
+        // 'description' => __("Voici la liste de vos posts"),
+        'class' => 'col-md-7'
+    ])
+     <div class="container-fluid mt--7">
         <div class="row">
             <div class="col-xl-12 order-xl-1">
                 <div class="card bg-secondary shadow">
                     <div class="card-header bg-white border-0">
                         <div class="row align-items-center">
-                            <div class="col-8">
-                                <h3 class="mb-0">{{ __('Gestions des utilisateurs') }}</h3>
-                            </div>
+                            <div class="col-8"></div>
                             <div class="col-4 text-right">
-                                <a href="{{ route('user.index') }}" class="btn btn-sm btn-primary">{{ __('Aller au list') }}</a>
+                                <a href="{{ route('post') }}" class="btn btn-sm btn-primary">{{ __('Aller aux Posts') }}</a>
                             </div>
                         </div>
                     </div>
