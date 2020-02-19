@@ -25,5 +25,6 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
 	Route::get('posts','PostController@index')->name('post');
 	Route::get('posts/create','PostController@create')->name('post.create');
+	Route::post('post','PostController@store')->name('post.store');
 });
 

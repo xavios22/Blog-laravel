@@ -36,49 +36,50 @@
                                     <th scope="col">Titre</th>
                                     <th scope="col">Content</th>
                                     <th scope="col">Date de création</th>
-                                    <th scope="col">Auteur</th>
+                                    <th scope="col">Etat</th>
+                                    <th scope="col"></th>
                                     <th scope="col"></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {{-- @foreach ($users as $user)
+                                
+                                @foreach ($posts as $post)
                                     <tr>
-                                        <td>{{ $user->name }}</td>
-                                        <td>
-                                            <a href="mailto:{{ $user->email }}">{{ $user->email }}</a>
-                                        </td>
-                                        <td>{{ $user->created_at->format('d/m/Y H:i') }}</td>
+                                        <td>{{ $post->id }}</td>
+                                        <td>{{ $post->title }}</td>
+                                        <td>{{ $post->contenu }}</td>
+                                        <td>{{ $post->created_at->format('d/m/Y H:i') }}</td>
+                                        <td></td>
                                         <td class="text-right">
                                             <div class="dropdown">
                                                 <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     <i class="fas fa-ellipsis-v"></i>
                                                 </a>
                                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                    @if ($user->id != auth()->id())
-                                                        <form action="{{ route('user.destroy', $user) }}" method="post">
+                                                    {{-- @if ($post->id != auth()->id()) --}}
+                                                        <form action="{{ route('user.destroy', $post) }}" method="post">
                                                             @csrf
                                                             @method('delete')
+                                                            <a class="dropdown-item" href="{{ route('user.edit', $post) }}">Modifier</a>
                                                             
-                                                            <a class="dropdown-item" href="{{ route('user.edit', $user) }}">{{ __('Edit') }}</a>
-                                                            <button type="button" class="dropdown-item" onclick="confirm('{{ __("Êtes-vous sûr de vouloir supprimer cet utilisateur ?") }}') ? this.parentElement.submit() : ''">
-                                                                {{ __('Delete') }}
-                                                            </button>
+                                                            <button type="button" class="dropdown-item" onclick="confirm('{{ __("Êtes-vous sûr de vouloir supprimer cet utilisateur ?") }}') ? this.parentElement.submit() : ''">Supprimer</button>
                                                         </form>    
-                                                    @else
-                                                        <a class="dropdown-item" href="{{ route('profile.edit') }}">{{ __('Edit') }}</a>
-                                                    @endif
+                                                    {{-- @else --}}
+                                                        {{-- <a class="dropdown-item" href="{{ route('profile.edit') }}">{{ __('Edit') }}</a> --}}
+                                                    {{-- @endif --}}
                                                 </div>
                                             </div>
                                         </td>
+                                        
                                     </tr>
-                                @endforeach --}}
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
                     <div class="card-footer py-4">
-                        {{-- <nav class="d-flex justify-content-end" aria-label="...">
-                            {{ $users->links() }}
-                        </nav> --}}
+                        <nav class="d-flex justify-content-end" aria-label="...">
+                            {{ $posts->links() }}
+                        </nav>
                     </div>
                 </div>
             </div>

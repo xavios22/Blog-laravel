@@ -12,9 +12,10 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return view('posts.index');
+    public function index(Post $model)
+    {   
+
+        return view('posts.index', ['posts' => $model->paginate(5)]);
     }
 
     /**
@@ -35,7 +36,13 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newpost = new Post;
+        $newpost->title = $request->title;
+        $newpost->contenu = $request->contenu;
+        $newpost->save();
+        
+        return redirect()->route('post')->withStatus(__('Votre post a été crée veuillez le valider'));
+
     }
 
     /**
