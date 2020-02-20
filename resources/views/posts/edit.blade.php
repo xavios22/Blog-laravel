@@ -23,25 +23,22 @@
                                 <div class="form-group{{ $errors->has('title') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="input-title">Titre</label>
                                     <input type="text" name="title" id="input-title" class="form-control form-control-alternative{{ $errors->has('title') ? ' is-invalid' : '' }}" placeholder="{{ __('Titre') }}" value="{{ old('title', $post->title) }}" required autofocus>
-
-                                    {{-- @if ($errors->has('name'))
+                                    @if ($errors->has('title'))
                                         <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('name') }}</strong>
+                                            <strong>{{ $errors->first('title') }}</strong>
                                         </span>
-                                    @endif --}}
+                                    @endif
                                 </div>
                                 <div class="form-group{{ $errors->has('contenu') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="input-contenu">A modifier</label>
                                     <input type="text" name="contenu" id="input-contenu" class="form-control form-control-alternative{{ $errors->has('contenu') ? ' is-invalid' : '' }}" placeholder="{{ __('Contenu à modififier') }}" value="{{ old('contenu', $post->contenu) }}" required>
 
-                                    {{-- @if ($errors->has('email'))
+                                    @if ($errors->has('contenu'))
                                         <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('email') }}</strong>
+                                            <strong>{{ $errors->first('contenu') }}</strong>
                                         </span>
-                                    @endif --}}
+                                    @endif
                                 </div>
-                                
-
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-success mt-4">{{ __('Sauvergarder') }}</button>
                                 </div>

@@ -83,7 +83,7 @@ class PostController extends Controller
         $post->title = $request->title;
         $post->contenu =$request->contenu;
         $post->update();
-        
+
         return redirect()->route('post.index')->withStatus(__('Votre post a été modifié'));
     }
 
@@ -95,6 +95,9 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+
+        return redirect()->route('post.index')->withStatus(__('Votre post a été supprimé'));
+
     }
 }

@@ -57,7 +57,7 @@
                                                 </a>
                                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                                                     {{-- @if ($post->id != auth()->id()) --}}
-                                                        <form action="{{ route('user.destroy', $post) }}" method="post">
+                                                        <form action="{{ route('post.destroy', $post) }}" method="post">
                                                             @csrf
                                                             @method('delete')
                                                             <a class="dropdown-item" href="{{ route('post.edit', $post) }}">Modifier</a>
