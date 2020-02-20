@@ -13,7 +13,7 @@
                         <div class="row align-items-center">
                             <div class="col-8"></div>
                             <div class="col-4 text-right">
-                                <a href="{{ route('post') }}" class="btn btn-sm btn-primary">Aller aux Posts</a>
+                                <a href="{{ route('post.index') }}" class="btn btn-sm btn-primary">Aller aux Posts</a>
                             </div>
                         </div>
                     </div>

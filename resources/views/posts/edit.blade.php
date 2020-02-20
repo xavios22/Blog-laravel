@@ -11,20 +11,18 @@
                             <div class="col-8">
                             </div>
                             <div class="col-4 text-right">
-                                <a href="{{ route('post') }}" class="btn btn-sm btn-primary">{{ __('Liste de blog') }}</a>
+                                <a href="{{ route('post.index') }}" class="btn btn-sm btn-primary">{{ __('Liste de blog') }}</a>
                             </div>
                         </div>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('post.update', $id ?? '') }}" autocomplete="off">
-                            @csrf
-                            @method('PUT')
-
-                            <h6 class="heading-small text-muted mb-4">{{ __('User information') }}</h6>
+                        <form method="post" action="{{ route('post.update',$post) }}" autocomplete="off">
+                            @method('put')
+                             @csrf
                             <div class="pl-lg-4">
                                 <div class="form-group{{ $errors->has('title') ? ' has-danger' : '' }}">
-                                    <label class="form-control-label" for="input-title">{{ __('titre') }}</label>
-                                    <input type="text" name="title" id="input-title" class="form-control form-control-alternative{{ $errors->has('title') ? ' is-invalid' : '' }}" placeholder="{{ __('Titre') }}"  required autofocus>
+                                    <label class="form-control-label" for="input-title">Titre</label>
+                                    <input type="text" name="title" id="input-title" class="form-control form-control-alternative{{ $errors->has('title') ? ' is-invalid' : '' }}" placeholder="{{ __('Titre') }}" value="{{ old('title', $post->title) }}" required autofocus>
 
                                     {{-- @if ($errors->has('name'))
                                         <span class="invalid-feedback" role="alert">
@@ -33,8 +31,8 @@
                                     @endif --}}
                                 </div>
                                 <div class="form-group{{ $errors->has('contenu') ? ' has-danger' : '' }}">
-                                    <label class="form-control-label" for="input-contenu">{{ __('Votre Post') }}</label>
-                                    <input type="text" name="contenu" id="input-contenu" class="form-control form-control-alternative{{ $errors->has('contenu') ? ' is-invalid' : '' }}" placeholder="{{ __('Post') }}" required>
+                                    <label class="form-control-label" for="input-contenu">A modifier</label>
+                                    <input type="text" name="contenu" id="input-contenu" class="form-control form-control-alternative{{ $errors->has('contenu') ? ' is-invalid' : '' }}" placeholder="{{ __('Contenu à modififier') }}" value="{{ old('contenu', $post->contenu) }}" required>
 
                                     {{-- @if ($errors->has('email'))
                                         <span class="invalid-feedback" role="alert">

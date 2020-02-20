@@ -91,7 +91,7 @@
                             </li>
                         </ul>
                         <li class="nav-item">
-                                <a class="nav-link" href="{{ route('post') }}">
+                                <a class="nav-link" href="{{ route('post.index') }}">
                                 <i class="fas fa-align-justify"></i>
                                     {{ __('Mes post') }}
                                 </a>
