@@ -24,5 +24,6 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
 	Route::resource('post', 'PostController');
 	Route::resource('categorie', 'CategoryController');
+	Route::resource('comment', 'CommentController');
 });
 
