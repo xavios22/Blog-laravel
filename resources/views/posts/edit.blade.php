@@ -20,6 +20,14 @@
 							@method('put')
 							 @csrf
 							<div class="pl-lg-4">
+							<label for="">Selectione une catégorie</label>
+      						<div class="form-group">
+          						<select name="categorie_id">
+									@foreach ($categories as $categorie)
+										<option value="{{$categorie->id}}">{{$categorie->name}}</option>
+									@endforeach
+          						</select>
+        					</div>
 								<div class="form-group{{ $errors->has('title') ? ' has-danger' : '' }}">
 									<label class="form-control-label" for="input-title">Titre</label>
 									<input type="text" name="title" id="input-title" class="form-control form-control-alternative{{ $errors->has('title') ? ' is-invalid' : '' }}" placeholder="{{ __('Titre') }}" value="{{ old('title', $post->title) }}" required autofocus>

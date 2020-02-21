@@ -43,6 +43,9 @@ class PostController extends Controller
         $newpost->title = $request->title;
         $newpost->contenu = $request->contenu;
         $newpost->save();
+
+        // Attach category at the post
+
         $categorie = Category::find($request->categorie_id);
         $newpost->categories()->attach($request->categorie_id);
 
@@ -69,7 +72,9 @@ class PostController extends Controller
     public function edit(Post $post)
     {
 
-        return view('posts.edit', compact('post'));
+        $categories = Category::all();
+
+        return view('posts.edit', compact('post', 'categories'));
     }
 
     /**
@@ -84,6 +89,16 @@ class PostController extends Controller
         $post = Post::where('id', $id)->first();
         $post->title = $request->title;
         $post->contenu = $request->contenu;
+        // Dectah Categories
+
+        $categories = Category::all();
+        $post->categories()->detach($categories);
+        // Attach Categories updated
+        
+        $categorie = Category::find($request->categorie_id);
+        $post->categories()->attach($request->categorie_id);
+
+        
         $post->update();
 
         return redirect()->route('post.index')->withStatus(__('Votre post a été modifié'));
