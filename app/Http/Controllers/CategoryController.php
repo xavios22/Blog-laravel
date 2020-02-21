@@ -14,6 +14,7 @@ class CategoryController extends Controller
 	 */
 	public function index(Category $model)
 	{	
+		
 		return view('categories.index', ['categories' => $model->paginate(10)]);
 	}
 

@@ -11,8 +11,8 @@ class Post extends Model
     /**
      * The roles that belong to the post.
      */
-    public function categorie()
+    public function categories()
     {
-        return $this->belongsToMany(Category::class, 'category_post');
+        return $this->belongsToMany('App\Category');
     }
 }
