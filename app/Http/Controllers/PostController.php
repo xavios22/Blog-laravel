@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
+
 
 class PostController extends Controller
 {
@@ -14,7 +14,7 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Post $model)
-    {   
+    {       
         
         return view('posts.index', ['posts' => $model->paginate(5)]);
     }

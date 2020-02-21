@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-class PostSeeder extends Seeder
+class CategoryPostSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,9 +11,9 @@ class PostSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('posts')->insert([
-            'title' => 'Xavier',
-            'contenu' => 'test',
+        DB::table('category_post')->insert([
+            'categorie_id' => 1,
+            'post_id' => 1,
             'created_at' => now(),
             'updated_at' => now()
         ]);
