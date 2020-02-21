@@ -14,8 +14,7 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Post $model)
-    {    
-        
+    {   
         
         return view('posts.index', ['posts' => $model->paginate(5)]);
     }
@@ -42,9 +41,8 @@ class PostController extends Controller
         $newpost->title = $request->title;
         $newpost->contenu = $request->contenu;
         $newpost->save();
-        
-        return redirect()->route('post.index')->withStatus(__('Votre post a été crée veuillez le valider'));
 
+        return redirect()->route('post.index')->withStatus(__('Votre post a été crée veuillez le valider'));
     }
 
     /**
@@ -65,8 +63,8 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Post $post)
-    {   
-        
+    {
+
         return view('posts.edit', compact('post'));
     }
 
@@ -78,10 +76,10 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {   
+    {
         $post = Post::where('id', $id)->first();
         $post->title = $request->title;
-        $post->contenu =$request->contenu;
+        $post->contenu = $request->contenu;
         $post->update();
 
         return redirect()->route('post.index')->withStatus(__('Votre post a été modifié'));
@@ -98,6 +96,5 @@ class PostController extends Controller
         $post->delete();
 
         return redirect()->route('post.index')->withStatus(__('Votre post a été supprimé'));
-
     }
 }
