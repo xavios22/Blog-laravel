@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Post;
+Use App\Category;
 use Illuminate\Http\Request;
 
 
@@ -14,7 +15,7 @@ class PostController extends Controller
      */
     public function index(Post $model)
     {       
-        
+
         return view('posts.index', ['posts' => $model->paginate(5)]);
     }
 
@@ -24,8 +25,10 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('posts.create');
+    {   
+        $categories = Category::all();
+        
+        return view('posts.create', compact(('categories')));
     }
 
     /**
@@ -40,6 +43,8 @@ class PostController extends Controller
         $newpost->title = $request->title;
         $newpost->contenu = $request->contenu;
         $newpost->save();
+        $categorie = Category::find($request->categorie_id);
+        $newpost->categories()->attach($request->categorie_id);
 
         return redirect()->route('post.index')->withStatus(__('Votre post a été crée veuillez le valider'));
     }

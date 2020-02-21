@@ -16,5 +16,15 @@ class CategorySeeder extends Seeder
             'created_at' => now(),
             'updated_at' => now()
         ]);
+        DB::table('categories')->insert([
+            'name' => 'Audio',
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        DB::table('categories')->insert([
+            'name' => 'Texto',
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
     }
 }
