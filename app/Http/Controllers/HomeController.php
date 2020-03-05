@@ -1,6 +1,6 @@
 <?php
-
 namespace App\Http\Controllers;
+use App\Category;
 
 class HomeController extends Controller
 {
@@ -11,7 +11,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
     }
 
     /**
@@ -21,6 +21,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('dashboard');
+            $categorie = Category::all();
+            // dd($categorie);
+        return view('Frontpage.welcome', compact('categorie'));
     }
 }
